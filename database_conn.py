@@ -1,8 +1,13 @@
 from datetime import time
 import psycopg2
-import my_secrets
+#import my_secrets
 
-DB_HOST, DB_NAME, DB_USER, DB_PASS = my_secrets.db_secrets()
+#DB_HOST, DB_NAME, DB_USER, DB_PASS = my_secrets.db_secrets()
+DB_HOST = st.secrets["DB_HOST"]
+DB_NAME = st.secrets["DB_NAME"]
+DB_USER = st.secrets["DB_USER"]
+DB_PASS = st.secrets["DB_PASS"]
+
 
 def get_values(name):
     conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
