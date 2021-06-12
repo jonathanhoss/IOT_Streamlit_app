@@ -1,9 +1,10 @@
 from datetime import time
 import psycopg2
-#import my_secrets
-import streamlit as st
+# import my_secrets
 
-#DB_HOST, DB_NAME, DB_USER, DB_PASS = my_secrets.db_secrets()
+
+# DB_HOST, DB_NAME, DB_USER, DB_PASS = my_secrets.db_secrets()
+import streamlit as st
 DB_HOST = st.secrets["DB_HOST"]
 DB_NAME = st.secrets["DB_NAME"]
 DB_USER = st.secrets["DB_USER"]

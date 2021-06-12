@@ -1,0 +1,1 @@
+für Streamlit-sharing von psycopg2==2.8.6 zu psycopg2-binary==2.8.6

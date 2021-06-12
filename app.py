@@ -24,7 +24,7 @@ def main():
 
     ## Auswahl der Daten nach Namen
     name_list= database_conn.querry_names()
-    name = st.selectbox('Select name', name_list, index=5)
+    name = st.selectbox('Select name', name_list, index=8)
 
     df = pd.DataFrame(database_conn.get_values(name), columns=['Time','Ort','Temperatur','Feuchte','Druck'])
     st.dataframe(df)
