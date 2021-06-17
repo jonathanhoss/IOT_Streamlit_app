@@ -17,7 +17,7 @@ def main():
     ## Interaktive Karte
     if st.button('Zeige Geo-Karte'):
         st.write("""
-        ## Letzen Daten von Messtationen
+        ## Letze Daten von Messtationen
         """)
         p = bokeh_map_test.create_map()
         st.bokeh_chart(p, use_container_width=True)
@@ -47,7 +47,7 @@ def main():
 
     st.write("""
     ## Graph mit ID als X-Achse
-    Falls die Zeitdaten nicht richtig erfasst wurden kann es vorkommen, dass der obere Graph nicht angezeigt wird. Dann kann hier der Graph mit der ID als X-Achse ausgegeben werden.
+    Falls die Zeitdaten nicht richtig erfasst wurden kann es vorkommen, dass der obere Graph nicht angezeigt wird. Dann kann hier der Graph mit der ID anstatt der Zeit als X-Achse ausgegeben werden.
     """)
     if st.button('Hier anzeigen'):
         import matplotlib.pyplot as plt
