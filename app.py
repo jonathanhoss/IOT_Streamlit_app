@@ -15,7 +15,7 @@ def main():
     """)
 
     ## Interaktive Karte
-    if st.button('Zeige Karte'):
+    if st.button('Zeige Geo-Karte'):
         st.write("""
         # Letzen Daten von Messtationen
         """)
@@ -26,6 +26,9 @@ def main():
     name_list= database_conn.querry_names()
     name = st.selectbox('Select name', name_list, index=8)
 
+    st.write(f"""
+    # Datensätze von {name}
+    """)
     df = pd.DataFrame(database_conn.get_values(name), columns=['Time','Ort','Temperatur','Feuchte','Druck'])
     st.dataframe(df)
     st.markdown(my_code_snippets.get_table_download_link(df), unsafe_allow_html=True)
@@ -35,7 +38,7 @@ def main():
     fig = make_subplots(rows=2, cols=1)
     fig.add_trace(go.Scatter(x=new_df.Time, y=new_df.Temperatur, name='Temperatur'), row=1, col=1)
     fig.add_trace(go.Scatter(x=new_df.Time, y=new_df.Feuchte, name='Feuchte'), row=1, col=1)
-    fig.add_trace(go.Scatter(x=new_df.Time, y=new_df.Druck, name='Feuchte'), row=2, col=1)
+    fig.add_trace(go.Scatter(x=new_df.Time, y=new_df.Druck, name='Druck'), row=2, col=1)
     st.plotly_chart(fig, use_container_width=True)
 
     import matplotlib.pyplot as plt

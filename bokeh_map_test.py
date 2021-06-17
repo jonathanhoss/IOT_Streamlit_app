@@ -24,14 +24,16 @@ def create_map():
 
     TOOLTIPS = [
         ("Name", "@name"),
-        ("Temp", "@temp")
+        ("Temperatur [°C]", "@temperatur"),
+        ("Feuchte [%]", "@feuchte"),
+        ("Luftdruck [hPa]", "@luftdruck")
         ]
 
     #data = [[47.820000,12.100000], [49.860000,10.383000], [47.862000,12.108000]]
 
     import pandas as pd
 
-    df = pd.DataFrame(database_conn.get_last(), columns=['Name','Breitengrad','Laengengrad', 'Temp'])
+    df = pd.DataFrame(database_conn.get_last(), columns=['Name','Breitengrad','Laengengrad', 'Temperatur', 'Feuchte', 'Luftdruck'])
     df = df.drop_duplicates(subset=['Name'], keep='first')
     print(df)
 
@@ -47,7 +49,9 @@ def create_map():
         x = xl,
         y = yl,
         name = df['Name'],
-        temp = df['Temp']
+        temperatur = df['Temperatur'],
+        feuchte = df['Feuchte'],
+        luftdruck = df['Luftdruck']
     ))
      
     p.circle('x','y', size=10, source=source)

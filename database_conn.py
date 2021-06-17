@@ -1,9 +1,9 @@
 from datetime import time
 import psycopg2
+
 # import my_secrets
-
-
 # DB_HOST, DB_NAME, DB_USER, DB_PASS = my_secrets.db_secrets()
+
 import streamlit as st
 DB_HOST = st.secrets["DB_HOST"]
 DB_NAME = st.secrets["DB_NAME"]
@@ -52,7 +52,7 @@ def get_last(): #holt die letzen 50 werte aus Datenbank
     cur = conn.cursor()
     with conn:
         with conn.cursor() as cur:
-            cur.execute(f"SELECT name, breitengrad, laengengrad, temperatur FROM bme ORDER BY id DESC LIMIT 50;")
+            cur.execute(f"SELECT name, breitengrad, laengengrad, temperatur, feuchte, luftdruck FROM bme ORDER BY id DESC LIMIT 50;")
             values = cur.fetchall()
     conn.close()
     return values
